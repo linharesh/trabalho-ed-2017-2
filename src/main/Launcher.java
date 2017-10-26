@@ -19,6 +19,7 @@ public class Launcher {
 		GeradorDeFluxo gerador = new GeradorDeFluxo(5, 20, 2, 60);
 		gerador.gerarFluxos(5000, "fluxos.csv");
 		System.out.println("teste");
+		System.out.println("teste2");
 	}
 
 }
