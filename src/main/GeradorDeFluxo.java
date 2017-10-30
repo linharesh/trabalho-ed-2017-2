@@ -11,7 +11,7 @@ public class GeradorDeFluxo {
 	private int fluxoMinimo;
 	private int fluxoMaximo;
 	
-	private 	FileWriter fw;
+	private FileWriter fw;
 	private BufferedWriter bw;
 	
 	

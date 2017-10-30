@@ -7,6 +7,10 @@ import main.Fluxo;
 public class ArvoreBinaria {
 
 	private NoArvoreBinaria raiz;
+	
+	private int fluxMax;
+	private int fluxMin;
+	private double limImpressao;
 
 	public ArvoreBinaria() {
 		this.raiz = null;
@@ -17,13 +21,16 @@ public class ArvoreBinaria {
 	}
 	
 	private void impressaoEmOrdemRecursiva(NoArvoreBinaria noAtual){
+		
 		if (noAtual != null){
 			this.impressaoEmOrdemRecursiva(noAtual.filhoEsquerda);
 			ListaEncadeada conteudo = noAtual.tabelaHash.getConteudo();
 			NoLista no = conteudo.primeiroNo;
 			do{
 				/* verificar a condição delta */
-				System.out.println(noAtual.setor+","+no.fluxo.getDia()+","+no.fluxo.getFluxo());
+				if (no.fluxo.getFluxo() > limImpressao) {
+					System.out.println(noAtual.setor+","+no.fluxo.getDia()+","+no.fluxo.getFluxo());
+				}
 				no = no.proximo;
 			}while(no != null);
 			this.impressaoEmOrdemRecursiva(noAtual.filhoDireita);
@@ -74,4 +81,19 @@ public class ArvoreBinaria {
 			return buscaRecursiva(setor, noAtual.filhoDireita);
 	}
 
+	public void impressaoEmOrdem(int fluxoMaximo, int fluxoMinimo) {
+		this.fluxMax = fluxoMaximo;
+		this.fluxMin = fluxoMinimo;
+
+		limImpressao = calculaLimiteMaluco(fluxMax, fluxMin);
+		System.out.println("Limite Maluco: "+limImpressao);
+
+		this.impressaoEmOrdemRecursiva(this.raiz);
+	}
+	
+	public double calculaLimiteMaluco(int fMax, int fMin) {
+		double lim = 0;
+		lim = fMin + 0.8*(fMax - fMin);
+		return lim;
+	}
 }

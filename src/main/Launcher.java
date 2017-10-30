@@ -5,11 +5,13 @@ import arvore.ArvoreBinaria;
 public class Launcher {
 
 	public static void main(String[] args) {
-	//	gerarFluxos();
+		gerarFluxos();
 		try {
 			LeitorDeFluxos leitor = new LeitorDeFluxos("arquivos/");
 			ArvoreBinaria fluxos = leitor.leFluxos();
-			fluxos.impressaoEmOrdem();
+			fluxos.impressaoEmOrdem(leitor.getFluxoMaximo(), leitor.getFluxoMinimo());
+			System.out.println("Fluxo máximo: "+leitor.getFluxoMaximo());
+			System.out.println("Fluxo mínimo: "+leitor.getFluxoMinimo());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -17,9 +19,9 @@ public class Launcher {
 	
 	public static void gerarFluxos(){
 		GeradorDeFluxo gerador = new GeradorDeFluxo(5, 20, 2, 60);
-		gerador.gerarFluxos(5000, "fluxos.csv");
-		System.out.println("teste");
-		System.out.println("teste2");
+		gerador.gerarFluxos(100, "arquivos/fluxos.csv");
+//		System.out.println("teste");
+//		System.out.println("teste2");
 	}
 
 }
