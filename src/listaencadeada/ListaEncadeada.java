@@ -30,7 +30,7 @@ public class ListaEncadeada {
 		if (this.primeiroNo == null) {
 			this.primeiroNo = novoNo;
 		} else {
-			NoLista resultado = buscar(fluxo.getDia());
+			NoLista resultado = buscar(fluxo);
 			if (resultado != null){
 				resultado.fluxo.setFluxo(resultado.fluxo.getFluxo()+fluxo.getFluxo());
 			} else {
@@ -43,15 +43,16 @@ public class ListaEncadeada {
 		}
 	}
 
-	private NoLista buscar(int dia) {
+	private NoLista buscar(Fluxo fluxo) {
 		NoLista noAtual = this.primeiroNo;
 		do {
-			if (noAtual.fluxo.getDia() == dia) {
+			if (noAtual.fluxo.getSetor() == fluxo.getSetor() && noAtual.fluxo.getDia() == fluxo.getDia()) {
 				return noAtual;
 			}
 			noAtual = noAtual.proximo;
 		} while (noAtual != null);
 		return null;
 	}
+	
 
 }

@@ -10,18 +10,14 @@ public class TabelaHash {
 	
 	private ListaEncadeada tabela[] = new ListaEncadeada[this.tamanho];
 	
-	/*
-	public int getPosicao(int valor){
-		return valor % this.tamanho;
-	}*/
-
+	
 	public void insere(Fluxo fluxo) {
-		int posicao = fluxo.getDia() % this.tamanho;
+		int posicao = ((fluxo.getSetor()*10) + fluxo.getDia()) % this.tamanho;
 		if (this.tabela[posicao] == null){	
 			ListaEncadeada lista = new ListaEncadeada();
 			lista.inserir(fluxo);
 			this.tabela[posicao] = lista;
-		} else { // tratamento da colisão
+		} else { 
 			this.tabela[posicao].inserir(fluxo);
 		}
 	}
