@@ -1,17 +1,19 @@
 package arvore;
-import hash.TabelaHash;
+
+import listaencadeada.ListaSetorDia.ListaEncadeadaSetorDia;
 
 public class NoArvoreBinaria {
 	
-	public TabelaHash tabelaHash;
 	public int fluxo;
+	public ListaEncadeadaSetorDia listaSetorDia;
 	
 	public NoArvoreBinaria filhoEsquerda;
 	public NoArvoreBinaria filhoDireita;
 	
+	
 	public NoArvoreBinaria(int fluxo){
-		this.tabelaHash = new TabelaHash();
 		this.fluxo = fluxo;
+		this.listaSetorDia = null;
 	}
 	
 }
