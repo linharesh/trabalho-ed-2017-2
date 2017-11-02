@@ -7,7 +7,7 @@ import listaencadeada.NoLista;
 public class Launcher {
 
 	public static void main(String[] args) {
-		gerarFluxos();
+		//gerarFluxos();
 		try {
 			LeitorDeFluxos leitor = new LeitorDeFluxos("arquivos/");
 			AcumuladorDeFluxos acumulador = leitor.leFluxos();

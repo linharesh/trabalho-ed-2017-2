@@ -2,18 +2,19 @@ package arvore;
 
 import listaencadeada.ListaSetorDia.ListaEncadeadaSetorDia;
 
-public class NoArvoreBinaria {
-	
+public class NoArvoreAvl {
+
 	public int fluxo;
+	public int altura;
 	public ListaEncadeadaSetorDia listaSetorDia;
 	
-	public NoArvoreBinaria filhoEsquerda;
-	public NoArvoreBinaria filhoDireita;
+	public NoArvoreAvl filhoEsquerda;
+	public NoArvoreAvl filhoDireita;
 	
 	
-	public NoArvoreBinaria(int fluxo){
+	public NoArvoreAvl(int fluxo){
 		this.fluxo = fluxo;
 		this.listaSetorDia = new ListaEncadeadaSetorDia();
 	}
-	
+
 }
