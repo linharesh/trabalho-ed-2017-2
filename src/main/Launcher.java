@@ -1,6 +1,6 @@
 package main;
 
-import arvore.ArvoreBinaria;
+import arvore.ArvoreAvl;
 import listaencadeada.ListaEncadeada;
 import listaencadeada.NoLista;
 
@@ -12,13 +12,15 @@ public class Launcher {
 			LeitorDeFluxos leitor = new LeitorDeFluxos("arquivos/");
 			AcumuladorDeFluxos acumulador = leitor.leFluxos();
 			ListaEncadeada fluxosAcumulados = acumulador.getFluxosAcumulados();
-			ArvoreBinaria arvore = new ArvoreBinaria();
+			ArvoreAvl arvore = new ArvoreAvl();
 			NoLista noAtual = fluxosAcumulados.primeiroNo;
 			while (noAtual != null) {
-				arvore.insere(noAtual.fluxo);
+				arvore.inserir(noAtual.fluxo);
 				noAtual = noAtual.proximo;
 			}
 			arvore.imprimeFluxos();
+			System.out.println("IMPRESSÃO PRE ORDEM:");
+			arvore.impressaoPreOrdem();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
