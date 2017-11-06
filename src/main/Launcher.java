@@ -19,8 +19,7 @@ public class Launcher {
 				noAtual = noAtual.proximo;
 			}
 			arvore.imprimeFluxos();
-			System.out.println("IMPRESSAO PRE ORDEM:");
-			arvore.impressaoPreOrdem();
+			//arvore.impressaoPreOrdem();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

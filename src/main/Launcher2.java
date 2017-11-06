@@ -93,7 +93,7 @@ public class Launcher2 {
 				arvore.inserir(noAtual.fluxo);
 				noAtual = noAtual.proximo;
 			}
-			System.out.println("count: " + count);
+			//System.out.println("count: " + count);
 			arvore.imprimeFluxos();
 		} catch (Exception e) {
 			e.printStackTrace();

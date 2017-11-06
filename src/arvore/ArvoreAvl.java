@@ -137,15 +137,15 @@ public class ArvoreAvl {
 
 	public void imprimeFluxos() {
 		double limite = this.calculaLimite();
-		System.out.println("Limite: " + limite);
+		//System.out.println("Limite: " + limite);
 		imprimeFluxosMaioresQueLimite(this.raiz, limite);
 	}
 
 	private double calculaLimite() {
 		int menor = this.encontraMenorFluxo(this.raiz).fluxo;
 		int maior = this.encontraMaiorFluxo(this.raiz).fluxo;
-		System.out.println("menor: " + menor);
-		System.out.println("maior: " + maior);
+		//System.out.println("menor: " + menor);
+		//System.out.println("maior: " + maior);
 		return menor + 0.8 * (maior - menor);
 	}
 
