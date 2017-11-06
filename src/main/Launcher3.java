@@ -32,12 +32,12 @@ public class Launcher3 {
 				System.out.println("Digite 1 para gerar novos fluxos de tráfego ou 0 para sair");
 				option = ent.nextInt();
 				if (option == 1 && count == 0) {
-					System.out.println("Primeira leitura");
+					// System.out.println("Primeira leitura");
 					count++;
 					gerarArvore(acumulador).imprimeFluxos();
 				} else if (option == 1 && count != 0) {
-					System.out.println("Segunda leitura em diante");
-					System.out.println("count: " + count);
+					// System.out.println("Segunda leitura em diante");
+					// System.out.println("count: " + count);
 					// arquivos que vamos copiar
 					File toFile = new File("arquivos/novosfluxos.csv");
 					// destino para onde vamos mover o arquivo

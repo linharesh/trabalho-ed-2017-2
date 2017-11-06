@@ -137,7 +137,7 @@ public class ArvoreAvl {
 
 	public void imprimeFluxos() {
 		double limite = this.calculaLimite();
-		//System.out.println("Limite: " + limite);
+		System.out.println("Limite: " + limite);
 		imprimeFluxosMaioresQueLimite(this.raiz, limite);
 	}
 
