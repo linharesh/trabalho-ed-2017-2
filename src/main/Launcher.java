@@ -1,8 +1,8 @@
 package main;
 
 import arvore.ArvoreAvl;
-import listaencadeada.ListaEncadeada;
-import listaencadeada.NoLista;
+import listaencadeada.ListaEncadeadaDeFluxos;
+import listaencadeada.NoListaDeFluxos;
 
 public class Launcher {
 
@@ -11,12 +11,12 @@ public class Launcher {
 		try {
 			LeitorDeFluxos leitor = new LeitorDeFluxos("arquivos/");
 			AcumuladorDeFluxos acumulador = leitor.leFluxos();
-			ListaEncadeada fluxosAcumulados = acumulador.getFluxosAcumulados();
+			ListaEncadeadaDeFluxos fluxosAcumulados = acumulador.getFluxosAcumulados();
 			ArvoreAvl arvore = new ArvoreAvl();
-			NoLista noAtual = fluxosAcumulados.primeiroNo;
+			NoListaDeFluxos noAtual = (NoListaDeFluxos) fluxosAcumulados.primeiroNo;
 			while (noAtual != null) {
 				arvore.inserir(noAtual.fluxo);
-				noAtual = noAtual.proximo;
+				noAtual = (NoListaDeFluxos) noAtual.proximo;
 			}
 			arvore.imprimeFluxos();
 			//arvore.impressaoPreOrdem();

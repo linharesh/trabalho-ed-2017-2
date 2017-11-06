@@ -1,20 +1,20 @@
 package hash;
 
-import listaencadeada.ListaEncadeada;
-import listaencadeada.NoLista;
+import listaencadeada.ListaEncadeadaDeFluxos;
+import listaencadeada.NoListaDeFluxos;
 import main.Fluxo;
 
 public class TabelaHash {
 	
 	private int tamanho = 100;
 	
-	private ListaEncadeada tabela[] = new ListaEncadeada[this.tamanho];
+	private ListaEncadeadaDeFluxos tabela[] = new ListaEncadeadaDeFluxos[this.tamanho];
 	
 	
 	public void insere(Fluxo fluxo) {
 		int posicao = ((fluxo.getSetor()*10) + fluxo.getDia()) % this.tamanho;
 		if (this.tabela[posicao] == null){	
-			ListaEncadeada lista = new ListaEncadeada();
+			ListaEncadeadaDeFluxos lista = new ListaEncadeadaDeFluxos();
 			lista.inserir(fluxo);
 			this.tabela[posicao] = lista;
 		} else { 
@@ -22,14 +22,14 @@ public class TabelaHash {
 		}
 	}
 	
-	public ListaEncadeada getConteudo(){
-		ListaEncadeada lista = new ListaEncadeada();
+	public ListaEncadeadaDeFluxos getConteudo(){
+		ListaEncadeadaDeFluxos lista = new ListaEncadeadaDeFluxos();
 		for (int i = 0 ; i < this.tamanho ; i++){
 			if (this.tabela[i] != null){
-				NoLista no = this.tabela[i].primeiroNo;
+				NoListaDeFluxos no = (NoListaDeFluxos) this.tabela[i].primeiroNo;
 				do{
 					lista.inserir(no.fluxo);
-					no = no.proximo;
+					no = (NoListaDeFluxos) no.proximo;
 				}while(no != null);
 			}
 		}

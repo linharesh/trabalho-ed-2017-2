@@ -8,8 +8,8 @@ import java.io.OutputStream;
 import java.util.Scanner;
 
 import arvore.ArvoreAvl;
-import listaencadeada.ListaEncadeada;
-import listaencadeada.NoLista;
+import listaencadeada.ListaEncadeadaDeFluxos;
+import listaencadeada.NoListaDeFluxos;
 
 public class Launcher3 {
 
@@ -79,6 +79,7 @@ public class Launcher3 {
 		} finally {
 			ent.close();
 		}
+		System.out.println("finalizando..");
 	}
 
 	public static ArvoreAvl gerarArvore(AcumuladorDeFluxos acumulador) {
@@ -88,11 +89,11 @@ public class Launcher3 {
 		try {
 			LeitorDeFluxos leitor = new LeitorDeFluxos("arquivos/");
 			acumulador = leitor.leFluxos(acumulador);
-			ListaEncadeada fluxosAcumulados = acumulador.getFluxosAcumulados();
-			NoLista noAtual = fluxosAcumulados.primeiroNo;
+			ListaEncadeadaDeFluxos fluxosAcumulados = acumulador.getFluxosAcumulados();
+			NoListaDeFluxos noAtual = (NoListaDeFluxos) fluxosAcumulados.primeiroNo;
 			while (noAtual != null) {
 				arvore.inserir(noAtual.fluxo);
-				noAtual = noAtual.proximo;
+				noAtual = (NoListaDeFluxos) noAtual.proximo;
 			}
 
 		} catch (Exception e) {

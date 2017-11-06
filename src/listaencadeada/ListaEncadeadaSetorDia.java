@@ -1,13 +1,7 @@
-package listaencadeada.ListaSetorDia;
+package listaencadeada;
 
 
-public class ListaEncadeadaSetorDia {
-	
-	public NoListaSetorDia primeiroNo;
-
-	public ListaEncadeadaSetorDia() {
-		this.primeiroNo = null;
-	}
+public class ListaEncadeadaSetorDia extends ListaEncadeada {
 	
 	public void insere(int setor, int dia) {
 		NoListaSetorDia novoNo = new NoListaSetorDia();

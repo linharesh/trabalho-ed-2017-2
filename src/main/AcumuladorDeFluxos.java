@@ -1,7 +1,7 @@
 package main;
 
 import hash.TabelaHash;
-import listaencadeada.ListaEncadeada;
+import listaencadeada.ListaEncadeadaDeFluxos;
 
 public class AcumuladorDeFluxos {
 
@@ -11,7 +11,7 @@ public class AcumuladorDeFluxos {
 		hash.insere(fluxo);
 	}
 	
-	public ListaEncadeada getFluxosAcumulados() {
+	public ListaEncadeadaDeFluxos getFluxosAcumulados() {
 		return hash.getConteudo();
 	}
 	

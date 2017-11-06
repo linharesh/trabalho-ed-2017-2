@@ -1,6 +1,6 @@
 package arvore;
 
-import listaencadeada.ListaSetorDia.ListaEncadeadaSetorDia;
+import listaencadeada.ListaEncadeadaSetorDia;
 
 public class NoArvoreAvl {
 

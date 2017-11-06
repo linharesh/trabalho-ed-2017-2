@@ -1,6 +1,6 @@
 package arvore;
 
-import listaencadeada.ListaSetorDia.NoListaSetorDia;
+import listaencadeada.NoListaSetorDia;
 import main.Fluxo;
 
 public class ArvoreAvl {
@@ -163,10 +163,10 @@ public class ArvoreAvl {
 
 	private void imprimeNo(NoArvoreAvl no) {
 		if (no != null) {
-			NoListaSetorDia noSetorDia = no.listaSetorDia.primeiroNo;
+			NoListaSetorDia noSetorDia = (NoListaSetorDia) no.listaSetorDia.primeiroNo;
 			while (noSetorDia != null) {
 				System.out.println(noSetorDia.setor + "," + noSetorDia.dia + "," + no.fluxo);
-				noSetorDia = noSetorDia.proximo;
+				noSetorDia = (NoListaSetorDia) noSetorDia.proximo;
 			}
 		}
 	}
